@@ -21,28 +21,28 @@ const ReactFetchImage = ({
   const [src, setSrc] = React.useState('')
 
   React.useEffect(() => {
-    const get = async () => {
-      const response = await fetch(fetcher.url, fetcher.settings)
+    try {
+      fetch(fetcher.url, fetcher.settings).then((response) => {
+        response
+          .blob()
+          .then((raw: Blob) => ({
+            contentType: response.headers.get('Content-Type'),
+            raw
+          }))
+          .then((data: any) => {
+            var reader = new FileReader()
+            reader.onload = function () {
+              const result: any = this.result
 
-      response
-        .blob()
-        .then((raw: Blob) => ({
-          contentType: response.headers.get('Content-Type'),
-          raw
-        }))
-        .then((data: any) => {
-          var reader = new FileReader()
-          reader.onload = function () {
-            const result: any = this.result
-
-            setSrc(result)
-            setFetching(false)
-          }
-          reader.readAsDataURL(data.raw)
-        })
+              setSrc(result)
+              setFetching(false)
+            }
+            reader.readAsDataURL(data.raw)
+          })
+      })
+    } catch (error) {
+      setFetching(false)
     }
-
-    get()
   }, [])
 
   if (fetching) {

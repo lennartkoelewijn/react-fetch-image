@@ -1,6 +1,6 @@
 {
   "name": "react-fetch-image",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Get and display images using the fetch API. Useful for images on an authorized route.",
   "author": "lennartkoelewijn",
   "license": "MIT",
