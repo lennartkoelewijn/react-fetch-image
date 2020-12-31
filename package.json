@@ -1,7 +1,7 @@
 {
   "name": "react-fetch-image",
-  "version": "1.0.0",
-  "description": "Get and display images using the fetching method. Useful for images on an authorized route.",
+  "version": "1.1.0",
+  "description": "Get and display images using the fetch method. Useful for images on an authorized route.",
   "author": "lennartkoelewijn",
   "license": "MIT",
   "repository": "lennartkoelewijn/react-fetch-image",
