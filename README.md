@@ -1,6 +1,6 @@
 # react-fetch-image
 
-> Get and display images using the fetch method. Useful for images on an authorized route.
+> Get and display images using the fetch API. Useful for images on an authorized route.
 
 [![NPM](https://img.shields.io/npm/v/react-fetch-image.svg)](https://www.npmjs.com/package/react-fetch-image) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -45,8 +45,8 @@ Common props you may want to specify:
 
 - `className` - CSS classes
 - `alt` - alt attribute
-- `loader` - show this component while fetching the image
-- `fetcher` - url and settings for the fetch to use
+- `loader` - show this HTML or component while fetching the image
+- `fetcher` - object with url and settings for the fetch API to use
 ## License
 
 MIT © [lennartkoelewijn](https://github.com/lennartkoelewijn)

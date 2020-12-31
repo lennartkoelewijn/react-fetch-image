@@ -1,7 +1,7 @@
 {
   "name": "react-fetch-image",
-  "version": "1.1.0",
-  "description": "Get and display images using the fetch method. Useful for images on an authorized route.",
+  "version": "1.1.1",
+  "description": "Get and display images using the fetch API. Useful for images on an authorized route.",
   "author": "lennartkoelewijn",
   "license": "MIT",
   "repository": "lennartkoelewijn/react-fetch-image",
@@ -11,6 +11,12 @@
   "engines": {
     "node": ">=10"
   },
+  "keywords": [
+    "react",
+    "react-component",
+    "image",
+    "fetch"
+  ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
