@@ -1,6 +1,6 @@
 # react-fetch-image
 
-> Get and display images using the fetch API. Useful for images on an authorized route. The component fetches the image from an enpoint and converts in into base64.
+> Get and display images using the fetch API. Useful for images on an authorized route. The component fetches the image from an endpoint and converts in into base64.
 
 [![NPM](https://img.shields.io/npm/v/react-fetch-image.svg)](https://www.npmjs.com/package/react-fetch-image) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
