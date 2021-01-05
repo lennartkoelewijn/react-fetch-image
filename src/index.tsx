@@ -1,10 +1,16 @@
 import * as React from 'react'
 
+// Helpers
+import fetchBase64 from './helpers/fetchBase64'
+
+export { fetchBase64 }
+
 interface Props {
   className?: string
   alt?: string
   loader?: any
   fetcher: Fetcher
+  [key: string]: any
 }
 interface Fetcher {
   url: string
@@ -15,41 +21,32 @@ const ReactFetchImage = ({
   className = '',
   alt = '',
   loader = null,
-  fetcher
+  fetcher,
+  ...props
 }: Props) => {
   const [fetching, setFetching] = React.useState(true)
   const [src, setSrc] = React.useState('')
 
   React.useEffect(() => {
-    try {
-      fetch(fetcher.url, fetcher.settings).then((response) => {
-        response
-          .blob()
-          .then((raw: Blob) => ({
-            contentType: response.headers.get('Content-Type'),
-            raw
-          }))
-          .then((data: any) => {
-            var reader = new FileReader()
-            reader.onload = function () {
-              const result: any = this.result
-
-              setSrc(result)
-              setFetching(false)
-            }
-            reader.readAsDataURL(data.raw)
-          })
-      })
-    } catch (error) {
-      setFetching(false)
-    }
+    fetchBase64({
+      ...fetcher,
+      ...{
+        callback: (base64: any) => {
+          setSrc(base64)
+          setFetching(false)
+        },
+        callbackError: () => {
+          setFetching(false)
+        }
+      }
+    })
   }, [])
 
   if (fetching) {
     return loader
   }
 
-  return <img className={className} src={src} alt={alt} />
+  return <img className={className} src={src} alt={alt} {...props} />
 }
 
 export default ReactFetchImage
